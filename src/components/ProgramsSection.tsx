@@ -1,86 +1,98 @@
+import { motion } from "framer-motion";
 import { User, Users, Dumbbell, Medal, ArrowRight } from "lucide-react";
 
 const programs = [
   {
     icon: User,
-    title: "Персональные тренировки",
+    title: "Personal 1-on-1",
     description:
-      "Индивидуальные занятия, адаптированные под ваши цели. Подходит для начинающих и опытных боксёров.",
+      "Intensive one-on-one sessions tailored to your goals. Perfect for beginners and advanced boxers seeking personalized attention.",
     features: [
-      "Персональный план тренировок",
-      "Работа над техникой",
-      "Гибкое расписание",
-      "Видеоанализ",
+      "Customized training plan",
+      "Technique correction",
+      "Flexible scheduling",
+      "Video analysis",
     ],
   },
   {
     icon: Users,
-    title: "Групповые тренировки",
+    title: "Group Training",
     description:
-      "Энергичные групповые занятия для развития выносливости и освоения базовой техники.",
+      "High-energy group sessions that build community and push your limits. Great for cardio and learning basics.",
     features: [
-      "Малые группы (до 8 человек)",
-      "Командная мотивация",
-      "Доступные цены",
-      "Фиксированное расписание",
+      "Small group sizes (max 8)",
+      "Team motivation",
+      "Affordable rates",
+      "Scheduled classes",
     ],
   },
   {
     icon: Dumbbell,
-    title: "Фитнес-бокс",
+    title: "Fitness Boxing",
     description:
-      "Тренировки для тех, кто хочет быть в форме без выхода на ринг. Боксёрские упражнения для всего тела.",
+      "Get in the best shape of your life without stepping in the ring. Boxing-inspired workouts for total body conditioning.",
     features: [
-      "Полноценная тренировка",
-      "Снятие стресса",
-      "Снижение веса",
-      "Без контактного спарринга",
+      "Full-body workout",
+      "Stress relief",
+      "Weight loss focus",
+      "No contact required",
     ],
   },
   {
     icon: Medal,
-    title: "Подготовка к соревнованиям",
+    title: "Competition Prep",
     description:
-      "Профессиональная подготовка для тех, кто готов выступать. Комплексный подход к боевой подготовке.",
+      "Elite training for those ready to compete. Comprehensive preparation covering all aspects of competitive boxing.",
     features: [
-      "Тактика боя",
-      "Спарринги",
-      "Психологическая подготовка",
-      "Рекомендации по питанию",
+      "Fight strategy",
+      "Sparring sessions",
+      "Mental conditioning",
+      "Nutrition guidance",
     ],
   },
 ];
 
 const ProgramsSection = () => {
   return (
-    <section id="programs" className="section-padding bg-secondary/50">
+    <section id="programs" className="section-padding bg-secondary/30">
       <div className="container mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
-          <span className="text-muted-foreground text-sm tracking-wide">
-            Направления
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <span className="text-primary font-display text-sm tracking-[0.2em] uppercase">
+            Training Options
           </span>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground mt-2">
-            Программы тренировок
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-2">
+            Training Programs
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
-            Выберите формат занятий, который подходит именно вам.
+            Choose the training style that fits your goals. Every program is
+            designed to challenge and transform you.
           </p>
-        </div>
+        </motion.div>
 
         {/* Programs Grid */}
-        <div className="grid md:grid-cols-2 gap-6">
-          {programs.map((program) => (
-            <div
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+          {programs.map((program, index) => (
+            <motion.div
               key={program.title}
-              className="card-minimal p-6 hover:shadow-md transition-shadow"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="card-boxing p-6 md:p-8 group hover:border-primary/50 transition-colors"
             >
               <div className="flex items-start gap-4">
-                <div className="p-3 bg-secondary rounded-lg">
-                  <program.icon className="w-5 h-5 text-foreground" />
+                <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                  <program.icon className="w-6 h-6 text-primary" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-foreground mb-2">
+                  <h3 className="font-display text-xl md:text-2xl font-bold text-foreground mb-2">
                     {program.title}
                   </h3>
                   <p className="text-muted-foreground text-sm mb-4">
@@ -92,14 +104,14 @@ const ProgramsSection = () => {
                         key={feature}
                         className="flex items-center gap-2 text-sm text-foreground/80"
                       >
-                        <ArrowRight className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+                        <ArrowRight className="w-4 h-4 text-primary flex-shrink-0" />
                         {feature}
                       </li>
                     ))}
                   </ul>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -1,44 +1,45 @@
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
+import { Check, Star } from "lucide-react";
 
 const pricingPlans = [
   {
-    name: "Пробная тренировка",
-    price: "1 500",
-    period: "разово",
-    description: "Знакомство с тренером и форматом занятий",
+    name: "Trial Session",
+    price: "25",
+    period: "one time",
+    description: "Perfect for trying out boxing training",
     features: [
-      "60 минут",
-      "Оценка физической формы",
-      "Введение в технику",
-      "Без обязательств",
+      "60-minute session",
+      "Fitness assessment",
+      "Basic technique intro",
+      "No commitment required",
     ],
     featured: false,
   },
   {
-    name: "Месячный абонемент",
-    price: "12 000",
-    period: "в месяц",
-    description: "Оптимальный вариант для регулярных занятий",
+    name: "Monthly Package",
+    price: "199",
+    period: "per month",
+    description: "Most popular for consistent progress",
     features: [
-      "12 тренировок в месяц",
-      "Персональный план",
-      "Отслеживание прогресса",
-      "Рекомендации по питанию",
-      "Приоритетная запись",
+      "12 sessions per month",
+      "Personalized training plan",
+      "Progress tracking",
+      "Nutrition guidance",
+      "Priority scheduling",
     ],
     featured: true,
   },
   {
-    name: "Разовая тренировка",
-    price: "3 000",
-    period: "за занятие",
-    description: "Гибкий вариант для занятых людей",
+    name: "Single Session",
+    price: "60",
+    period: "per session",
+    description: "Flexible option for busy schedules",
     features: [
-      "60 минут",
-      "Индивидуальная программа",
-      "Работа над техникой",
-      "Запись в любое время",
+      "60-minute session",
+      "Customized workout",
+      "Technique focus",
+      "Book anytime",
     ],
     featured: false,
   },
@@ -49,73 +50,88 @@ const PricingSection = () => {
     <section id="pricing" className="section-padding bg-background">
       <div className="container mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
-          <span className="text-muted-foreground text-sm tracking-wide">
-            Стоимость
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <span className="text-primary font-display text-sm tracking-[0.2em] uppercase">
+            Investment
           </span>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground mt-2">
-            Цены на тренировки
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-2">
+            Training Rates
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
-            Инвестируйте в себя. Выберите подходящий формат.
+            Invest in yourself. Choose a plan that fits your commitment level
+            and goals.
           </p>
-        </div>
+        </motion.div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {pricingPlans.map((plan) => (
-            <div
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
+          {pricingPlans.map((plan, index) => (
+            <motion.div
               key={plan.name}
-              className={`card-minimal p-6 flex flex-col ${
-                plan.featured ? "ring-2 ring-foreground" : ""
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className={`relative card-boxing p-6 md:p-8 flex flex-col ${
+                plan.featured
+                  ? "border-primary glow-accent scale-105 z-10"
+                  : ""
               }`}
             >
               {plan.featured && (
-                <div className="text-center mb-4">
-                  <span className="bg-foreground text-background px-3 py-1 rounded-full text-xs font-medium">
-                    Популярный выбор
-                  </span>
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                  <div className="flex items-center gap-1 bg-primary text-primary-foreground px-4 py-1 rounded-full text-xs font-display uppercase tracking-wider">
+                    <Star className="w-3 h-3" />
+                    Most Popular
+                  </div>
                 </div>
               )}
 
               <div className="text-center mb-6">
-                <h3 className="text-lg font-semibold text-foreground mb-2">
+                <h3 className="font-display text-xl font-bold text-foreground mb-2">
                   {plan.name}
                 </h3>
                 <p className="text-muted-foreground text-sm mb-4">
                   {plan.description}
                 </p>
                 <div className="flex items-baseline justify-center gap-1">
-                  <span className="text-3xl font-semibold text-foreground">
+                  <span className="text-muted-foreground text-lg">$</span>
+                  <span className="font-display text-4xl md:text-5xl font-bold text-foreground">
                     {plan.price}
                   </span>
-                  <span className="text-muted-foreground text-sm">₽</span>
                 </div>
                 <span className="text-muted-foreground text-sm">
                   {plan.period}
                 </span>
               </div>
 
-              <ul className="space-y-3 flex-1 mb-6">
+              <ul className="space-y-3 flex-1 mb-8">
                 {plan.features.map((feature) => (
                   <li
                     key={feature}
                     className="flex items-center gap-3 text-sm text-foreground/80"
                   >
-                    <Check className="w-4 h-4 text-foreground flex-shrink-0" />
+                    <Check className="w-5 h-5 text-primary flex-shrink-0" />
                     {feature}
                   </li>
                 ))}
               </ul>
 
               <Button
-                variant={plan.featured ? "default" : "outline"}
+                variant={plan.featured ? "hero" : "heroOutline"}
+                size="lg"
                 className="w-full"
                 asChild
               >
-                <a href="#contact">Записаться</a>
+                <a href="#contact">Get Started</a>
               </Button>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

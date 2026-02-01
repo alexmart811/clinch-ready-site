@@ -1,38 +1,37 @@
-import { motion } from "framer-motion";
-import { Star, Quote } from "lucide-react";
+import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    name: "James Mitchell",
-    role: "Amateur Boxer",
+    name: "Алексей Иванов",
+    role: "Любитель бокса",
     content:
-      "Coach Marcus transformed my game completely. In 6 months, I went from zero experience to winning my first amateur fight. His attention to detail and patient coaching style is unmatched.",
+      "За 6 месяцев тренировок с Магомедбеком я прошёл путь от новичка до первой победы на любительском турнире. Внимание к деталям и терпеливый подход — это то, что отличает его от других тренеров.",
     rating: 5,
-    result: "Won first amateur fight after 6 months",
+    result: "Победа на турнире за 6 месяцев",
   },
   {
-    name: "Sarah Chen",
-    role: "Fitness Enthusiast",
+    name: "Екатерина Смирнова",
+    role: "Фитнес",
     content:
-      "I came for fitness, but I found so much more. Lost 30 pounds in 4 months while learning real boxing skills. The confidence I've gained is priceless.",
+      "Пришла ради фигуры, а нашла гораздо больше. Минус 15 кг за 4 месяца и настоящие навыки бокса. Уверенность в себе — бесценна.",
     rating: 5,
-    result: "Lost 30 lbs in 4 months",
+    result: "Минус 15 кг за 4 месяца",
   },
   {
-    name: "David Rodriguez",
-    role: "Professional Boxer",
+    name: "Дмитрий Петров",
+    role: "Профессиональный боксёр",
     content:
-      "After training with several coaches, Marcus stands out. His strategic approach to fight preparation helped me win my regional title. A true master of the craft.",
+      "Работал с разными тренерами, но Магомедбек выделяется стратегическим подходом к подготовке. Благодаря ему я выиграл региональный чемпионат.",
     rating: 5,
-    result: "Regional Champion",
+    result: "Региональный чемпион",
   },
   {
-    name: "Emily Thompson",
-    role: "Self-Defense Student",
+    name: "Анна Козлова",
+    role: "Самооборона",
     content:
-      "As a woman, feeling safe was my priority. Marcus created a welcoming environment and taught me skills I'll carry forever. Now I walk with confidence.",
+      "Как женщине для меня было важно чувствовать себя в безопасности. Магомедбек создал комфортную атмосферу и научил навыкам, которые останутся со мной навсегда.",
     rating: 5,
-    result: "Gained confidence and self-defense skills",
+    result: "Уверенность и навыки самозащиты",
   },
 ];
 
@@ -41,68 +40,55 @@ const TestimonialsSection = () => {
     <section id="testimonials" className="section-padding bg-background">
       <div className="container mx-auto">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span className="text-primary font-display text-sm tracking-[0.2em] uppercase">
-            Success Stories
+        <div className="text-center mb-12">
+          <span className="text-muted-foreground text-sm tracking-wide">
+            Отзывы
           </span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-2">
-            Client Results
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground mt-2">
+            Результаты учеников
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
-            Real transformations from real people. Their success is my greatest
-            reward.
+            Реальные истории реальных людей. Их успех — моя главная награда.
           </p>
-        </motion.div>
+        </div>
 
         {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
+        <div className="grid md:grid-cols-2 gap-6">
+          {testimonials.map((testimonial) => (
+            <div
               key={testimonial.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="card-boxing p-6 md:p-8 relative"
+              className="card-minimal p-6"
             >
-              <Quote className="absolute top-6 right-6 w-10 h-10 text-primary/20" />
-              
               {/* Rating */}
               <div className="flex gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star
                     key={i}
-                    className="w-4 h-4 fill-primary text-primary"
+                    className="w-4 h-4 fill-foreground text-foreground"
                   />
                 ))}
               </div>
 
               {/* Content */}
-              <p className="text-foreground/80 mb-6 leading-relaxed">
-                "{testimonial.content}"
+              <p className="text-foreground/80 mb-5 leading-relaxed">
+                «{testimonial.content}»
               </p>
 
               {/* Result Badge */}
-              <div className="inline-block bg-primary/10 text-primary text-xs font-display uppercase tracking-wider px-3 py-1 rounded-full mb-4">
+              <div className="inline-block bg-secondary text-foreground text-xs font-medium px-3 py-1 rounded-full mb-4">
                 {testimonial.result}
               </div>
 
               {/* Author */}
               <div>
-                <div className="font-display text-lg font-bold text-foreground">
+                <div className="font-medium text-foreground">
                   {testimonial.name}
                 </div>
                 <div className="text-muted-foreground text-sm">
                   {testimonial.role}
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

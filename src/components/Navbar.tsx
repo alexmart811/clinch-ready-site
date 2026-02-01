@@ -4,12 +4,13 @@ import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#programs", label: "Programs" },
-  { href: "#pricing", label: "Pricing" },
-  { href: "#schedule", label: "Schedule" },
-  { href: "#testimonials", label: "Reviews" },
-  { href: "#contact", label: "Contact" },
+  { href: "#about", label: "О тренере" },
+  { href: "#gallery", label: "Галерея" },
+  { href: "#programs", label: "Программы" },
+  { href: "#pricing", label: "Цены" },
+  { href: "#schedule", label: "Расписание" },
+  { href: "#testimonials", label: "Отзывы" },
+  { href: "#contact", label: "Контакты" },
 ];
 
 const Navbar = () => {
@@ -21,7 +22,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#" className="font-display text-xl md:text-2xl font-bold tracking-wider text-foreground">
-            BOXING<span className="text-primary">COACH</span>
+            МАГОМЕДБЕК<span className="text-primary"> МАХМУДОВ</span>
           </a>
 
           {/* Desktop Navigation */}
@@ -36,7 +37,7 @@ const Navbar = () => {
               </a>
             ))}
             <Button variant="hero" size="default" asChild>
-              <a href="#contact">Book Now</a>
+              <a href="#contact">Записаться</a>
             </Button>
           </div>
 
@@ -44,7 +45,7 @@ const Navbar = () => {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden p-2 text-foreground"
-            aria-label="Toggle menu"
+            aria-label="Меню"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -72,7 +73,7 @@ const Navbar = () => {
                 </a>
               ))}
               <Button variant="hero" size="lg" asChild className="mt-2">
-                <a href="#contact" onClick={() => setIsOpen(false)}>Book Now</a>
+                <a href="#contact" onClick={() => setIsOpen(false)}>Записаться</a>
               </Button>
             </div>
           </motion.div>

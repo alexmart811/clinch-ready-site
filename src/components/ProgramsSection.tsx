@@ -4,50 +4,50 @@ import { User, Users, Dumbbell, Medal, ArrowRight } from "lucide-react";
 const programs = [
   {
     icon: User,
-    title: "Personal 1-on-1",
+    title: "Персональные тренировки",
     description:
-      "Intensive one-on-one sessions tailored to your goals. Perfect for beginners and advanced boxers seeking personalized attention.",
+      "Интенсивные индивидуальные занятия, адаптированные под ваши цели. Идеально для начинающих и опытных боксёров.",
     features: [
-      "Customized training plan",
-      "Technique correction",
-      "Flexible scheduling",
-      "Video analysis",
+      "Индивидуальный план тренировок",
+      "Коррекция техники",
+      "Гибкое расписание",
+      "Видеоанализ",
     ],
   },
   {
     icon: Users,
-    title: "Group Training",
+    title: "Групповые тренировки",
     description:
-      "High-energy group sessions that build community and push your limits. Great for cardio and learning basics.",
+      "Энергичные групповые занятия для командной мотивации. Отлично подходят для кардио и изучения основ.",
     features: [
-      "Small group sizes (max 8)",
-      "Team motivation",
-      "Affordable rates",
-      "Scheduled classes",
+      "Малые группы (до 8 человек)",
+      "Командная мотивация",
+      "Доступные цены",
+      "Регулярное расписание",
     ],
   },
   {
     icon: Dumbbell,
-    title: "Fitness Boxing",
+    title: "Фитнес-бокс",
     description:
-      "Get in the best shape of your life without stepping in the ring. Boxing-inspired workouts for total body conditioning.",
+      "Приведи себя в лучшую форму без выхода на ринг. Тренировки на основе бокса для общей физической подготовки.",
     features: [
-      "Full-body workout",
-      "Stress relief",
-      "Weight loss focus",
-      "No contact required",
+      "Тренировка всего тела",
+      "Снятие стресса",
+      "Фокус на похудении",
+      "Без контакта",
     ],
   },
   {
     icon: Medal,
-    title: "Competition Prep",
+    title: "Подготовка к соревнованиям",
     description:
-      "Elite training for those ready to compete. Comprehensive preparation covering all aspects of competitive boxing.",
+      "Элитные тренировки для тех, кто готов выступать. Полная подготовка ко всем аспектам соревновательного бокса.",
     features: [
-      "Fight strategy",
-      "Sparring sessions",
-      "Mental conditioning",
-      "Nutrition guidance",
+      "Боевая стратегия",
+      "Спарринги",
+      "Психологическая подготовка",
+      "Консультации по питанию",
     ],
   },
 ];
@@ -65,14 +65,14 @@ const ProgramsSection = () => {
           className="text-center mb-16"
         >
           <span className="text-primary font-display text-sm tracking-[0.2em] uppercase">
-            Training Options
+            Варианты тренировок
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-2">
-            Training Programs
+            Программы тренировок
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
-            Choose the training style that fits your goals. Every program is
-            designed to challenge and transform you.
+            Выберите стиль тренировок, который соответствует вашим целям. Каждая
+            программа создана, чтобы бросить вам вызов и изменить вас.
           </p>
         </motion.div>
 

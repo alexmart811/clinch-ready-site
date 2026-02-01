@@ -3,36 +3,36 @@ import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: "James Mitchell",
-    role: "Amateur Boxer",
+    name: "Алексей Смирнов",
+    role: "Боксёр-любитель",
     content:
-      "Coach Marcus transformed my game completely. In 6 months, I went from zero experience to winning my first amateur fight. His attention to detail and patient coaching style is unmatched.",
+      "Магомедбек полностью изменил мою технику. За 6 месяцев я прошёл путь от нуля до победы в первом любительском бою. Его внимание к деталям и терпеливый подход не имеют равных.",
     rating: 5,
-    result: "Won first amateur fight after 6 months",
+    result: "Победа в первом бою за 6 месяцев",
   },
   {
-    name: "Sarah Chen",
-    role: "Fitness Enthusiast",
+    name: "Екатерина Волкова",
+    role: "Фитнес-энтузиаст",
     content:
-      "I came for fitness, but I found so much more. Lost 30 pounds in 4 months while learning real boxing skills. The confidence I've gained is priceless.",
+      "Пришла ради фитнеса, но получила гораздо больше. Сбросила 15 кг за 4 месяца, изучая настоящие боксёрские навыки. Уверенность, которую я обрела, бесценна.",
     rating: 5,
-    result: "Lost 30 lbs in 4 months",
+    result: "Минус 15 кг за 4 месяца",
   },
   {
-    name: "David Rodriguez",
-    role: "Professional Boxer",
+    name: "Дмитрий Козлов",
+    role: "Профессиональный боксёр",
     content:
-      "After training with several coaches, Marcus stands out. His strategic approach to fight preparation helped me win my regional title. A true master of the craft.",
+      "После тренировок с несколькими тренерами могу сказать: Магомедбек выделяется. Его стратегический подход к подготовке к боям помог мне выиграть региональный титул.",
     rating: 5,
-    result: "Regional Champion",
+    result: "Региональный чемпион",
   },
   {
-    name: "Emily Thompson",
-    role: "Self-Defense Student",
+    name: "Мария Петрова",
+    role: "Самооборона",
     content:
-      "As a woman, feeling safe was my priority. Marcus created a welcoming environment and taught me skills I'll carry forever. Now I walk with confidence.",
+      "Как женщина, для меня безопасность была приоритетом. Магомедбек создал комфортную атмосферу и научил навыкам, которые останутся со мной навсегда. Теперь я хожу с уверенностью.",
     rating: 5,
-    result: "Gained confidence and self-defense skills",
+    result: "Уверенность и навыки самообороны",
   },
 ];
 
@@ -49,14 +49,13 @@ const TestimonialsSection = () => {
           className="text-center mb-16"
         >
           <span className="text-primary font-display text-sm tracking-[0.2em] uppercase">
-            Success Stories
+            Истории успеха
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-2">
-            Client Results
+            Результаты учеников
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
-            Real transformations from real people. Their success is my greatest
-            reward.
+            Реальные трансформации реальных людей. Их успех — моя главная награда.
           </p>
         </motion.div>
 
@@ -85,7 +84,7 @@ const TestimonialsSection = () => {
 
               {/* Content */}
               <p className="text-foreground/80 mb-6 leading-relaxed">
-                "{testimonial.content}"
+                «{testimonial.content}»
               </p>
 
               {/* Result Badge */}

@@ -4,42 +4,42 @@ import { Check, Star } from "lucide-react";
 
 const pricingPlans = [
   {
-    name: "Trial Session",
-    price: "25",
-    period: "one time",
-    description: "Perfect for trying out boxing training",
+    name: "Пробное занятие",
+    price: "2000",
+    period: "разово",
+    description: "Идеально, чтобы попробовать тренировки по боксу",
     features: [
-      "60-minute session",
-      "Fitness assessment",
-      "Basic technique intro",
-      "No commitment required",
+      "60 минут",
+      "Оценка физической формы",
+      "Введение в технику",
+      "Без обязательств",
     ],
     featured: false,
   },
   {
-    name: "Monthly Package",
-    price: "199",
-    period: "per month",
-    description: "Most popular for consistent progress",
+    name: "Месячный абонемент",
+    price: "15000",
+    period: "в месяц",
+    description: "Самый популярный для стабильного прогресса",
     features: [
-      "12 sessions per month",
-      "Personalized training plan",
-      "Progress tracking",
-      "Nutrition guidance",
-      "Priority scheduling",
+      "12 занятий в месяц",
+      "Персональный план тренировок",
+      "Отслеживание прогресса",
+      "Консультации по питанию",
+      "Приоритетная запись",
     ],
     featured: true,
   },
   {
-    name: "Single Session",
-    price: "60",
-    period: "per session",
-    description: "Flexible option for busy schedules",
+    name: "Разовое занятие",
+    price: "3500",
+    period: "за занятие",
+    description: "Гибкий вариант для занятых людей",
     features: [
-      "60-minute session",
-      "Customized workout",
-      "Technique focus",
-      "Book anytime",
+      "60 минут",
+      "Индивидуальная тренировка",
+      "Фокус на технике",
+      "Запись в любое время",
     ],
     featured: false,
   },
@@ -58,14 +58,14 @@ const PricingSection = () => {
           className="text-center mb-16"
         >
           <span className="text-primary font-display text-sm tracking-[0.2em] uppercase">
-            Investment
+            Стоимость
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-2">
-            Training Rates
+            Цены на тренировки
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
-            Invest in yourself. Choose a plan that fits your commitment level
-            and goals.
+            Инвестируйте в себя. Выберите план, который соответствует вашим
+            целям и уровню подготовки.
           </p>
         </motion.div>
 
@@ -88,7 +88,7 @@ const PricingSection = () => {
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                   <div className="flex items-center gap-1 bg-primary text-primary-foreground px-4 py-1 rounded-full text-xs font-display uppercase tracking-wider">
                     <Star className="w-3 h-3" />
-                    Most Popular
+                    Популярный
                   </div>
                 </div>
               )}
@@ -101,10 +101,10 @@ const PricingSection = () => {
                   {plan.description}
                 </p>
                 <div className="flex items-baseline justify-center gap-1">
-                  <span className="text-muted-foreground text-lg">$</span>
                   <span className="font-display text-4xl md:text-5xl font-bold text-foreground">
                     {plan.price}
                   </span>
+                  <span className="text-muted-foreground text-lg">₽</span>
                 </div>
                 <span className="text-muted-foreground text-sm">
                   {plan.period}
@@ -129,7 +129,7 @@ const PricingSection = () => {
                 className="w-full"
                 asChild
               >
-                <a href="#contact">Get Started</a>
+                <a href="#contact">Записаться</a>
               </Button>
             </motion.div>
           ))}

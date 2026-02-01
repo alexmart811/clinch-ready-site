@@ -8,29 +8,29 @@ import { toast } from "sonner";
 import { z } from "zod";
 
 const contactSchema = z.object({
-  name: z.string().trim().min(2, "Name must be at least 2 characters").max(100, "Name must be less than 100 characters"),
-  phone: z.string().trim().min(10, "Please enter a valid phone number").max(20, "Phone number is too long"),
-  message: z.string().trim().max(1000, "Message must be less than 1000 characters").optional(),
+  name: z.string().trim().min(2, "Имя должно содержать минимум 2 символа").max(100, "Имя слишком длинное"),
+  phone: z.string().trim().min(10, "Введите корректный номер телефона").max(20, "Номер телефона слишком длинный"),
+  message: z.string().trim().max(1000, "Сообщение должно быть менее 1000 символов").optional(),
 });
 
 const socialLinks = [
   {
     icon: Phone,
-    label: "Call",
-    value: "+1 (555) 123-4567",
-    href: "tel:+15551234567",
+    label: "Позвонить",
+    value: "+7 (999) 123-45-67",
+    href: "tel:+79991234567",
   },
   {
     icon: MessageCircle,
     label: "WhatsApp",
-    value: "Message on WhatsApp",
-    href: "https://wa.me/15551234567",
+    value: "Написать в WhatsApp",
+    href: "https://wa.me/79991234567",
   },
   {
     icon: Instagram,
     label: "Instagram",
-    value: "@coachrivera_boxing",
-    href: "https://instagram.com/coachrivera_boxing",
+    value: "@magomedbekboxing",
+    href: "https://instagram.com/magomedbekboxing",
   },
 ];
 
@@ -57,7 +57,7 @@ const ContactSection = () => {
     // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1000));
     
-    toast.success("Message sent! I'll get back to you within 24 hours.");
+    toast.success("Сообщение отправлено! Я свяжусь с вами в течение 24 часов.");
     setFormData({ name: "", phone: "", message: "" });
     setIsSubmitting(false);
   };
@@ -74,15 +74,15 @@ const ContactSection = () => {
             transition={{ duration: 0.6 }}
           >
             <span className="text-primary font-display text-sm tracking-[0.2em] uppercase">
-              Get In Touch
+              Связаться
             </span>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-2 mb-6">
-              Start Your Journey Today
+              Начните свой путь сегодня
             </h2>
             <p className="text-muted-foreground mb-10">
-              Ready to transform your life through boxing? Reach out now to book
-              your first session or ask any questions. I respond to all messages
-              within 24 hours.
+              Готовы изменить свою жизнь через бокс? Свяжитесь со мной, чтобы
+              записаться на первое занятие или задать вопросы. Отвечаю на все
+              сообщения в течение 24 часов.
             </p>
 
             {/* Social Links */}
@@ -120,7 +120,7 @@ const ContactSection = () => {
           >
             <div className="card-boxing p-6 md:p-8">
               <h3 className="font-display text-2xl font-bold text-foreground mb-6">
-                Send a Message
+                Отправить сообщение
               </h3>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
@@ -128,12 +128,12 @@ const ContactSection = () => {
                     htmlFor="name"
                     className="block text-sm font-medium text-foreground mb-2"
                   >
-                    Your Name
+                    Ваше имя
                   </label>
                   <Input
                     id="name"
                     type="text"
-                    placeholder="John Smith"
+                    placeholder="Иван Иванов"
                     value={formData.name}
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
@@ -148,12 +148,12 @@ const ContactSection = () => {
                     htmlFor="phone"
                     className="block text-sm font-medium text-foreground mb-2"
                   >
-                    Phone Number
+                    Номер телефона
                   </label>
                   <Input
                     id="phone"
                     type="tel"
-                    placeholder="+1 (555) 123-4567"
+                    placeholder="+7 (999) 123-45-67"
                     value={formData.phone}
                     onChange={(e) =>
                       setFormData({ ...formData, phone: e.target.value })
@@ -168,11 +168,11 @@ const ContactSection = () => {
                     htmlFor="message"
                     className="block text-sm font-medium text-foreground mb-2"
                   >
-                    Message (Optional)
+                    Сообщение (необязательно)
                   </label>
                   <Textarea
                     id="message"
-                    placeholder="Tell me about your goals..."
+                    placeholder="Расскажите о ваших целях..."
                     value={formData.message}
                     onChange={(e) =>
                       setFormData({ ...formData, message: e.target.value })
@@ -189,10 +189,10 @@ const ContactSection = () => {
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
-                    "Sending..."
+                    "Отправка..."
                   ) : (
                     <>
-                      Send Message
+                      Отправить
                       <Send className="w-5 h-5 ml-2" />
                     </>
                   )}

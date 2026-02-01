@@ -2,13 +2,13 @@ import { motion } from "framer-motion";
 import { Clock, MapPin, Wifi } from "lucide-react";
 
 const scheduleData = [
-  { day: "Monday", morning: "6:00 AM - 9:00 AM", evening: "5:00 PM - 9:00 PM" },
-  { day: "Tuesday", morning: "6:00 AM - 9:00 AM", evening: "5:00 PM - 9:00 PM" },
-  { day: "Wednesday", morning: "6:00 AM - 9:00 AM", evening: "5:00 PM - 9:00 PM" },
-  { day: "Thursday", morning: "6:00 AM - 9:00 AM", evening: "5:00 PM - 9:00 PM" },
-  { day: "Friday", morning: "6:00 AM - 9:00 AM", evening: "5:00 PM - 8:00 PM" },
-  { day: "Saturday", morning: "8:00 AM - 12:00 PM", evening: "—" },
-  { day: "Sunday", morning: "Closed", evening: "—" },
+  { day: "Понедельник", morning: "6:00 - 9:00", evening: "17:00 - 21:00" },
+  { day: "Вторник", morning: "6:00 - 9:00", evening: "17:00 - 21:00" },
+  { day: "Среда", morning: "6:00 - 9:00", evening: "17:00 - 21:00" },
+  { day: "Четверг", morning: "6:00 - 9:00", evening: "17:00 - 21:00" },
+  { day: "Пятница", morning: "6:00 - 9:00", evening: "17:00 - 20:00" },
+  { day: "Суббота", morning: "8:00 - 12:00", evening: "—" },
+  { day: "Воскресенье", morning: "Выходной", evening: "—" },
 ];
 
 const ScheduleSection = () => {
@@ -24,17 +24,17 @@ const ScheduleSection = () => {
             transition={{ duration: 0.6 }}
           >
             <span className="text-primary font-display text-sm tracking-[0.2em] uppercase">
-              Availability
+              Доступность
             </span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-2 mb-8">
-              Weekly Schedule
+              Расписание
             </h2>
 
             <div className="card-boxing overflow-hidden">
               <div className="grid grid-cols-3 bg-primary/10 p-4 text-sm font-display uppercase tracking-wider text-foreground">
-                <span>Day</span>
-                <span>Morning</span>
-                <span>Evening</span>
+                <span>День</span>
+                <span>Утро</span>
+                <span>Вечер</span>
               </div>
               {scheduleData.map((item, index) => (
                 <div
@@ -61,10 +61,10 @@ const ScheduleSection = () => {
             transition={{ duration: 0.6 }}
           >
             <span className="text-primary font-display text-sm tracking-[0.2em] uppercase">
-              Find Us
+              Где нас найти
             </span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-2 mb-8">
-              Training Location
+              Место тренировок
             </h2>
 
             <div className="space-y-6">
@@ -74,11 +74,11 @@ const ScheduleSection = () => {
                 </div>
                 <div>
                   <h3 className="font-display text-lg font-bold text-foreground mb-1">
-                    Main Gym Location
+                    Основной зал
                   </h3>
                   <p className="text-muted-foreground">
-                    123 Fighter's Way, Downtown<br />
-                    Los Angeles, CA 90001
+                    г. Москва, ул. Спортивная, 15<br />
+                    Спортивный комплекс «Чемпион»
                   </p>
                 </div>
               </div>
@@ -89,11 +89,11 @@ const ScheduleSection = () => {
                 </div>
                 <div>
                   <h3 className="font-display text-lg font-bold text-foreground mb-1">
-                    Flexible Scheduling
+                    Гибкое расписание
                   </h3>
                   <p className="text-muted-foreground">
-                    Book sessions at times that work for you. Early bird and
-                    evening slots available.
+                    Записывайтесь на удобное для вас время. Доступны утренние
+                    и вечерние слоты.
                   </p>
                 </div>
               </div>
@@ -104,11 +104,11 @@ const ScheduleSection = () => {
                 </div>
                 <div>
                   <h3 className="font-display text-lg font-bold text-foreground mb-1">
-                    Online Training Available
+                    Онлайн-тренировки
                   </h3>
                   <p className="text-muted-foreground">
-                    Can't make it in person? Join live virtual sessions from
-                    anywhere in the world.
+                    Не можете приехать лично? Присоединяйтесь к онлайн-занятиям
+                    из любой точки мира.
                   </p>
                 </div>
               </div>

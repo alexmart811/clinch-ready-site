@@ -25,7 +25,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <span className="inline-block text-primary font-display text-sm md:text-base tracking-[0.3em] uppercase mb-4">
-            Personal Training
+            Персональные тренировки
           </span>
         </motion.div>
 
@@ -35,9 +35,9 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground leading-tight mb-6"
         >
-          Power. Discipline.
+          Сила. Дисциплина.
           <br />
-          <span className="text-primary">Results.</span>
+          <span className="text-primary">Результат.</span>
         </motion.h1>
 
         <motion.p
@@ -46,8 +46,8 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
         >
-          Transform your life through the art of boxing. 15+ years of experience
-          training champions and fitness enthusiasts alike.
+          Измени свою жизнь через искусство бокса. Более 15 лет опыта тренировок
+          чемпионов и любителей.
         </motion.p>
 
         <motion.div
@@ -57,10 +57,10 @@ const HeroSection = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <Button variant="hero" size="xl" asChild>
-            <a href="#contact">Book a Training</a>
+            <a href="#contact">Записаться на тренировку</a>
           </Button>
           <Button variant="heroOutline" size="xl" asChild>
-            <a href="#programs">View Programs</a>
+            <a href="#programs">Программы</a>
           </Button>
         </motion.div>
       </div>

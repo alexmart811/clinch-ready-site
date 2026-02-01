@@ -10,53 +10,57 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-2">
             <a href="#" className="font-display text-2xl font-bold tracking-wider text-foreground">
-              BOXING<span className="text-primary">COACH</span>
+              МАГОМЕДБЕК<span className="text-primary"> МАХМУДОВ</span>
             </a>
             <p className="text-muted-foreground mt-4 max-w-md">
-              Transform your life through the art of boxing. Personal training
-              for all levels, from beginners to competitive fighters.
+              Измени свою жизнь через искусство бокса. Персональные тренировки
+              для всех уровней — от начинающих до профессиональных бойцов.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
             <h4 className="font-display text-lg font-bold text-foreground mb-4">
-              Quick Links
+              Навигация
             </h4>
             <ul className="space-y-2">
-              {["About", "Programs", "Pricing", "Schedule", "Contact"].map(
-                (link) => (
-                  <li key={link}>
-                    <a
-                      href={`#${link.toLowerCase()}`}
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                )
-              )}
+              {[
+                { label: "О тренере", href: "about" },
+                { label: "Программы", href: "programs" },
+                { label: "Цены", href: "pricing" },
+                { label: "Расписание", href: "schedule" },
+                { label: "Контакты", href: "contact" },
+              ].map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={`#${link.href}`}
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Contact */}
           <div>
             <h4 className="font-display text-lg font-bold text-foreground mb-4">
-              Contact
+              Контакты
             </h4>
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-muted-foreground">
                 <Phone className="w-4 h-4 text-primary" />
-                +1 (555) 123-4567
+                +7 (999) 123-45-67
               </li>
               <li className="flex items-center gap-2 text-muted-foreground">
                 <Mail className="w-4 h-4 text-primary" />
-                coach@boxingtrainer.com
+                coach@boxingtrainer.ru
               </li>
               <li className="flex items-start gap-2 text-muted-foreground">
                 <MapPin className="w-4 h-4 text-primary mt-1" />
-                123 Fighter's Way<br />
-                Los Angeles, CA
+                ул. Спортивная, 15<br />
+                Москва
               </li>
             </ul>
           </div>
@@ -65,11 +69,11 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-muted-foreground text-sm">
-            © {currentYear} Boxing Coach. All rights reserved.
+            © {currentYear} Магомедбек Махмудов. Все права защищены.
           </p>
           <div className="flex gap-4">
             <a
-              href="https://instagram.com"
+              href="https://instagram.com/magomedbekboxing"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 text-muted-foreground hover:text-foreground transition-colors"
@@ -78,7 +82,7 @@ const Footer = () => {
               <Instagram className="w-5 h-5" />
             </a>
             <a
-              href="https://wa.me/15551234567"
+              href="https://wa.me/79991234567"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 text-muted-foreground hover:text-foreground transition-colors"

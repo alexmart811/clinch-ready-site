@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Trophy, Swords, Medal, Award, MapPin, Calendar } from "lucide-react";
+import { Trophy, Swords, Medal, Award, Calendar, Star } from "lucide-react";
 import coachPortrait from "@/assets/coach-portrait.jpg";
 
 const stats = [
@@ -7,6 +7,8 @@ const stats = [
   { icon: Swords, value: "200", label: "Боёв" },
   { icon: Trophy, value: "196", label: "Побед" },
   { icon: Award, value: "МСМК", label: "Разряд" },
+  { icon: Star, value: "3", label: "Проф. боя" },
+  { icon: Medal, value: "3", label: "Проф. победы" },
 ];
 
 const achievements = [
@@ -67,15 +69,9 @@ const AboutSection = () => {
             <span className="text-primary font-display text-sm tracking-[0.2em] uppercase">
               О тренере
             </span>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-2 mb-4">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-2 mb-6">
               Махмудов Магомедбек
             </h2>
-            
-            {/* Origin info */}
-            <div className="flex items-center gap-2 text-muted-foreground mb-6">
-              <MapPin className="w-4 h-4 text-primary" />
-              <span>Республика Дагестан, Табасаранский район, с. Пилиг</span>
-            </div>
 
             <div className="space-y-4 text-muted-foreground">
               <p>
@@ -96,7 +92,7 @@ const AboutSection = () => {
             </div>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8">
               {stats.map((stat, index) => (
                 <motion.div
                   key={stat.label}

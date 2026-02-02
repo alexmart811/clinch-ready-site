@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { User, Users, Dumbbell, Medal, ArrowRight } from "lucide-react";
+import { User, Users, Dumbbell, Medal, ArrowRight, Baby } from "lucide-react";
 
 const programs = [
   {
@@ -24,6 +24,18 @@ const programs = [
       "Командная мотивация",
       "Доступные цены",
       "Регулярное расписание",
+    ],
+  },
+  {
+    icon: Baby,
+    title: "Бокс для детей",
+    description:
+      "С 9 лет можно спокойно отдавать детей в бокс. Развитие реакции, дисциплины, уверенности и мышления.",
+    features: [
+      "Развитие координации и реакции",
+      "Воспитание дисциплины",
+      "Уверенность в себе",
+      "Умение держать удар в жизни",
     ],
   },
   {
@@ -52,6 +64,13 @@ const programs = [
   },
 ];
 
+const kidsBoxingBenefits = [
+  "Умение трудиться",
+  "Держать слово",
+  "Не ломаться при первых трудностях",
+  "Уважать границы и правила",
+];
+
 const ProgramsSection = () => {
   return (
     <section id="programs" className="section-padding bg-secondary/30">
@@ -77,7 +96,7 @@ const ProgramsSection = () => {
         </motion.div>
 
         {/* Programs Grid */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {programs.map((program, index) => (
             <motion.div
               key={program.title}
@@ -114,6 +133,110 @@ const ProgramsSection = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Kids Boxing Detailed Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mt-20"
+        >
+          <div className="text-center mb-10">
+            <span className="text-primary font-display text-sm tracking-[0.2em] uppercase">
+              Для родителей
+            </span>
+            <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mt-2">
+              Почему так важно отдавать детей в бокс
+            </h3>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="card-boxing p-6 md:p-8"
+            >
+              <div className="space-y-4 text-muted-foreground">
+                <p className="text-lg text-foreground font-medium">
+                  Спорт в детстве — это не про медали. И даже не про профессию.
+                  <span className="text-primary"> Это про фундамент.</span>
+                </p>
+                
+                <p>
+                  Ребёнок, который тренируется, учится терпеть. Учится ждать результат. 
+                  Учится проигрывать и вставать. Он раньше других понимает: 
+                  <em> ничего не даётся просто так.</em>
+                </p>
+
+                <p>
+                  Меняется мышление. Он перестаёт бояться усилий. 
+                  Перестаёт искать лёгкие пути. Начинает уважать труд — свой и чужой.
+                </p>
+
+                <p>
+                  Спорт дисциплинирует. Не жёстко. А через привычку. 
+                  Сегодня не хочется — но ты пришёл. Сделал. 
+                  И вышел сильнее, чем зашёл.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="card-boxing p-6 md:p-8"
+            >
+              <div className="space-y-4 text-muted-foreground">
+                <p>
+                  Такие дети <strong className="text-foreground">увереннее</strong>. 
+                  Спокойнее в стрессах. Они лучше держат удар — и в зале, и в жизни.
+                </p>
+
+                <p className="text-foreground font-medium">
+                  Даже если он не станет спортсменом, навыки останутся:
+                </p>
+
+                <ul className="space-y-2">
+                  {kidsBoxingBenefits.map((benefit) => (
+                    <li key={benefit} className="flex items-center gap-3">
+                      <ArrowRight className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span>{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="pt-4 border-t border-border">
+                  <p className="text-lg text-foreground">
+                    <strong>Цель — не сделать чемпиона. А вырастить сильного человека!</strong>
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Quote */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-10 text-center"
+          >
+            <blockquote className="inline-block max-w-2xl bg-primary/10 border border-primary/20 rounded-lg p-6 md:p-8">
+              <p className="text-lg md:text-xl text-foreground italic">
+                «Дисциплина бьёт талант»
+              </p>
+              <p className="text-muted-foreground mt-2 text-sm">
+                Бокс — сложнейший вид спорта, для успеха в котором очень важно постоянство
+              </p>
+            </blockquote>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

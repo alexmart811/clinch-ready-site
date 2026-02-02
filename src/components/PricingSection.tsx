@@ -30,8 +30,21 @@ const pricingPlans = [
     featured: true,
   },
   {
+    name: "Тренировка в паре",
+    price: "3500",
+    period: "с человека",
+    description: "Занятие для двоих — выгоднее вместе",
+    features: [
+      "60 минут",
+      "2 человека",
+      "Работа в паре",
+      "Спарринг с партнёром",
+    ],
+    featured: false,
+  },
+  {
     name: "Групповые занятия",
-    price: "7000",
+    price: "12000",
     period: "в месяц",
     description: "Абонемент на групповые тренировки",
     features: [
@@ -69,7 +82,7 @@ const PricingSection = () => {
         </motion.div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {pricingPlans.map((plan, index) => (
             <motion.div
               key={plan.name}

@@ -7,6 +7,7 @@ const navLinks = [
   { href: "#about", label: "О тренере" },
   { href: "#gallery", label: "Галерея" },
   { href: "#programs", label: "Программы" },
+  { href: "#kids", label: "Для детей" },
   { href: "#pricing", label: "Цены" },
   { href: "#schedule", label: "Расписание" },
   { href: "#testimonials", label: "Отзывы" },

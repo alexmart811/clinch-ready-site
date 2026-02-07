@@ -34,6 +34,23 @@ const socialLinks = [
   },
 ];
 
+// Функция отправки заявки через серверный API
+async function sendToTelegram(data: { name: string; phone: string; message?: string }) {
+  try {
+    const response = await fetch("/api/telegram", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    const result = await response.json();
+    return { ok: response.ok, error: result.error };
+  } catch (error) {
+    console.error("Send error:", error);
+    return { ok: false, error: "Ошибка сети" };
+  }
+}
+
 const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -45,20 +62,26 @@ const ContactSection = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    const result = contactSchema.safeParse(formData);
-    if (!result.success) {
-      const firstError = result.error.errors[0];
+    const validation = contactSchema.safeParse(formData);
+    if (!validation.success) {
+      const firstError = validation.error.errors[0];
       toast.error(firstError.message);
       return;
     }
 
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    // Отправляем заявку
+    const sendResult = await sendToTelegram(formData);
     
-    toast.success("Сообщение отправлено! Я свяжусь с вами в течение 24 часов.");
-    setFormData({ name: "", phone: "", message: "" });
+    if (sendResult.ok) {
+      toast.success("Заявка отправлена! Я свяжусь с вами в ближайшее время.");
+      setFormData({ name: "", phone: "", message: "" });
+    } else {
+      toast.error("Не удалось отправить заявку. Позвоните по телефону.");
+      console.error("Submit error:", sendResult.error);
+    }
+    
     setIsSubmitting(false);
   };
 

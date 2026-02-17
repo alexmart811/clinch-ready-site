@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Image, Play } from "lucide-react";
 
 // Динамически загружаем все изображения из папки gallery
 const galleryImages = import.meta.glob<{ default: string }>(
@@ -14,7 +14,18 @@ const images = Object.entries(galleryImages).map(([path, module]) => ({
   name: path.split("/").pop()?.split(".")[0] || "",
 }));
 
+// Видео из VK (клипы)
+const videos = [
+  { oid: "230523076", id: "456239136" },
+  { oid: "230523076", id: "456239135" },
+  { oid: "230523076", id: "456239134" },
+  { oid: "230523076", id: "456239133" },
+];
+
+type TabType = "photos" | "videos";
+
 const GallerySection = () => {
+  const [activeTab, setActiveTab] = useState<TabType>("photos");
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const openLightbox = (index: number) => {
@@ -56,17 +67,44 @@ const GallerySection = () => {
           className="text-center mb-12"
         >
           <span className="text-primary font-display text-sm tracking-[0.2em] uppercase">
-            Фотогалерея
+            Галерея
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-2">
             Моменты тренировок
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
-            Фотографии с тренировок, соревнований и достижений
+            Фото и видео с тренировок, соревнований и достижений
           </p>
         </motion.div>
 
-        {/* Gallery Grid */}
+        {/* Tabs */}
+        <div className="flex justify-center gap-4 mb-8">
+          <button
+            onClick={() => setActiveTab("photos")}
+            className={`flex items-center gap-2 px-6 py-3 rounded-lg font-display text-sm uppercase tracking-wider transition-all ${
+              activeTab === "photos"
+                ? "bg-primary text-primary-foreground"
+                : "bg-secondary/50 text-muted-foreground hover:bg-secondary hover:text-foreground"
+            }`}
+          >
+            <Image className="w-4 h-4" />
+            Фото
+          </button>
+          <button
+            onClick={() => setActiveTab("videos")}
+            className={`flex items-center gap-2 px-6 py-3 rounded-lg font-display text-sm uppercase tracking-wider transition-all ${
+              activeTab === "videos"
+                ? "bg-primary text-primary-foreground"
+                : "bg-secondary/50 text-muted-foreground hover:bg-secondary hover:text-foreground"
+            }`}
+          >
+            <Play className="w-4 h-4" />
+            Видео
+          </button>
+        </div>
+
+        {/* Photos Grid */}
+        {activeTab === "photos" && (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {images.map((image, index) => (
             <motion.div
@@ -87,6 +125,37 @@ const GallerySection = () => {
             </motion.div>
           ))}
         </div>
+        )}
+
+        {/* Videos Grid */}
+        {activeTab === "videos" && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4 }}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+          >
+            {videos.map((video, index) => (
+              <motion.div
+                key={`${video.oid}_${video.id}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="aspect-[9/16] sm:aspect-video rounded-lg overflow-hidden bg-secondary"
+              >
+                <iframe
+                  src={`https://vk.com/video_ext.php?oid=${video.oid}&id=${video.id}&hd=2`}
+                  width="100%"
+                  height="100%"
+                  allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+                  frameBorder="0"
+                  allowFullScreen
+                  className="w-full h-full"
+                />
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
       </div>
 
       {/* Lightbox */}

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { User, Users, Dumbbell, Medal, ArrowRight, Baby } from "lucide-react";
+import { User, Dumbbell, Medal, ArrowRight, Baby } from "lucide-react";
 
 const programs = [
   {
@@ -12,18 +12,6 @@ const programs = [
       "Коррекция техники",
       "Гибкое расписание",
       "Видеоанализ",
-    ],
-  },
-  {
-    icon: Users,
-    title: "Групповые тренировки",
-    description:
-      "Энергичные групповые занятия для командной мотивации. Отлично подходят для кардио и изучения основ.",
-    features: [
-      "Малые группы (до 8 человек)",
-      "Командная мотивация",
-      "Доступные цены",
-      "Регулярное расписание",
     ],
   },
   {

@@ -5,20 +5,20 @@ import { Check, Star } from "lucide-react";
 const pricingPlans = [
   {
     name: "Пробное занятие",
-    price: "2500",
-    period: "разово",
-    description: "Идеально, чтобы попробовать тренировки по боксу",
+    price: "Бесплатно",
+    period: "",
+    description: "Познакомьтесь с тренером и попробуйте бокс",
     features: [
       "60 минут",
-      "Оценка физической формы",
-      "Введение в технику",
+      "Знакомство с тренером",
+      "Оценка уровня подготовки",
       "Без обязательств",
     ],
     featured: false,
   },
   {
     name: "Разовое занятие",
-    price: "5000",
+    price: "6 000",
     period: "за занятие",
     description: "Персональная тренировка один на один",
     features: [
@@ -27,18 +27,31 @@ const pricingPlans = [
       "Работа на лапах",
       "Фокус на технике",
     ],
+    featured: false,
+  },
+  {
+    name: "Абонемент 8",
+    price: "44 000",
+    period: "5 500 ₽ за тренировку",
+    description: "8 персональных тренировок",
+    features: [
+      "8 тренировок по 60 минут",
+      "Экономия 4 000 ₽",
+      "Индивидуальный подход",
+      "Гибкое расписание",
+    ],
     featured: true,
   },
   {
-    name: "Тренировка в паре",
-    price: "3500",
-    period: "с человека",
-    description: "Занятие для двоих — выгоднее вместе",
+    name: "Абонемент 12",
+    price: "60 000",
+    period: "5 000 ₽ за тренировку",
+    description: "12 персональных тренировок",
     features: [
-      "60 минут",
-      "2 человека",
-      "Работа в паре",
-      "Спарринг с партнёром",
+      "12 тренировок по 60 минут",
+      "Экономия 12 000 ₽",
+      "Максимальный результат",
+      "Лучшая цена",
     ],
     featured: false,
   },
@@ -69,7 +82,7 @@ const PricingSection = () => {
         </motion.div>
 
         {/* Pricing Cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {pricingPlans.map((plan, index) => (
             <motion.div
               key={plan.name}
@@ -103,11 +116,15 @@ const PricingSection = () => {
                   <span className="font-display text-4xl md:text-5xl font-bold text-foreground">
                     {plan.price}
                   </span>
-                  <span className="text-muted-foreground text-lg">₽</span>
+                  {plan.price !== "Бесплатно" && (
+                    <span className="text-muted-foreground text-lg">₽</span>
+                  )}
                 </div>
-                <span className="text-muted-foreground text-sm">
-                  {plan.period}
-                </span>
+                {plan.period && (
+                  <span className="text-muted-foreground text-sm">
+                    {plan.period}
+                  </span>
+                )}
               </div>
 
               <ul className="space-y-3 flex-1 mb-8">

@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Heart, Users, Target, TrendingUp } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 const reasons = [
   {
@@ -99,78 +98,6 @@ const WhyMeSection = () => {
           ))}
         </div>
 
-        {/* Trial Training Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mt-20"
-        >
-          <div className="text-center mb-10">
-            <span className="text-primary font-display text-sm tracking-[0.2em] uppercase">
-              Первый шаг
-            </span>
-            <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mt-2">
-              Пробная тренировка
-            </h3>
-          </div>
-
-          <div className="max-w-4xl mx-auto">
-            <div className="card-boxing p-8 md:p-10">
-              <div className="space-y-6 text-muted-foreground">
-                <p className="text-lg">
-                  <strong className="text-foreground">Не бойтесь ошибаться, не бойтесь пробовать.</strong> 
-                  {" "}Бокс — это то, что нужно каждому человеку для здорового образа жизни и успеха.
-                </p>
-
-                <blockquote className="border-l-4 border-primary pl-6 py-2 my-6 bg-primary/5 rounded-r-lg">
-                  <p className="italic text-foreground/90 text-lg">
-                    «Даже если меч понадобится один раз в жизни, носить его нужно всегда»
-                  </p>
-                  <span className="text-sm text-muted-foreground mt-2 block">— самурайская мудрость</span>
-                </blockquote>
-
-                <p>
-                  Каждый мужчина, каждый ребёнок должен заниматься боксом, чтобы чувствовать себя 
-                  безопасно и уверенно. Опасность может прийти внезапно, и неподготовленность 
-                  может стоить жизни.
-                </p>
-
-                <p className="text-foreground font-medium">
-                  Когда вы приходите ко мне — вы учитесь, а ошибки — это часть обучения. Пробуйте смело!
-                </p>
-
-                <div className="border-t border-border pt-6 mt-6">
-                  <p className="text-lg mb-2">
-                    <strong className="text-foreground">Работа на лапах</strong> — высший пилотаж 
-                    тренерского мастерства и показатель технической зрелости боксёра.
-                  </p>
-                  <p>
-                    🥊 Это не развлечение, а самый эффективный тренажёр для переноса навыков в ринг.
-                  </p>
-                </div>
-              </div>
-
-              {/* Price Card */}
-              <div className="mt-8 p-6 bg-primary/10 rounded-lg border border-primary/20">
-                <div className="flex items-center justify-between flex-wrap gap-4">
-                  <div>
-                    <div className="text-sm text-muted-foreground uppercase tracking-wider">
-                      Пробная тренировка
-                    </div>
-                    <div className="font-display text-4xl font-bold text-foreground">
-                      2 500 ₽
-                    </div>
-                  </div>
-                  <Button variant="hero" size="xl" asChild>
-                    <a href="#contact">Записаться</a>
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

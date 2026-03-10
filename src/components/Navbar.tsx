@@ -5,12 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { href: "#about", label: "О тренере" },
+  { href: "#group", label: "Групповые" },
+  { href: "#personal", label: "Персональные" },
   { href: "#gallery", label: "Галерея" },
-  { href: "#programs", label: "Программы" },
-  { href: "#kids", label: "Для детей" },
   { href: "#pricing", label: "Цены" },
   { href: "#schedule", label: "Расписание" },
-  { href: "#testimonials", label: "Отзывы" },
   { href: "#contact", label: "Контакты" },
 ];
 

@@ -4,19 +4,6 @@ import { Check, Star } from "lucide-react";
 
 const pricingPlans = [
   {
-    name: "Пробное занятие",
-    price: "Бесплатно",
-    period: "",
-    description: "Познакомьтесь с тренером и попробуйте бокс",
-    features: [
-      "60 минут",
-      "Знакомство с тренером",
-      "Оценка уровня подготовки",
-      "Без обязательств",
-    ],
-    featured: false,
-  },
-  {
     name: "Разовое занятие",
     price: "6 000",
     period: "за занятие",
@@ -82,7 +69,7 @@ const PricingSection = () => {
         </motion.div>
 
         {/* Pricing Cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
           {pricingPlans.map((plan, index) => (
             <motion.div
               key={plan.name}
@@ -116,9 +103,7 @@ const PricingSection = () => {
                   <span className="font-display text-4xl md:text-5xl font-bold text-foreground">
                     {plan.price}
                   </span>
-                  {plan.price !== "Бесплатно" && (
-                    <span className="text-muted-foreground text-lg">₽</span>
-                  )}
+                  <span className="text-muted-foreground text-lg">₽</span>
                 </div>
                 {plan.period && (
                   <span className="text-muted-foreground text-sm">

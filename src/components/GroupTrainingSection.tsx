@@ -86,7 +86,7 @@ const GroupTrainingSection = () => {
 
               <div className="mt-8 pt-6 border-t border-border">
                 <p className="text-foreground font-medium">
-                  Узнайте подробности и актуальное расписание — запишитесь на пробное занятие!
+                  Узнайте подробности и актуальное расписание — запишитесь на групповую тренировку!
                 </p>
               </div>
             </div>
